@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/Project/Style/admin.css">
+    <title>Admin - Bulk Upload</title>
+</head>
+<body>
+    <nav>
+       
+        <a href="/admin/upload">Bulk Upload</a>
+        <a href="/admin/products">Product Listing</a>
+        <a href="/">Logout</a>
+    </nav>
+
+    <h1>Bulk Product Upload</h1>
+    
+    <form action="/admin/upload" method="post" enctype="multipart/form-data">
+        <label for="file-upload">Select a file to upload (JSON, CSV):</label>
+        <input type="file" id="file-upload" name="file-upload" accept=".json, .csv, .txt">
+        <button type="submit">Upload</button>
+    </form>
+
+    <div id="instructions">
+        <h3>Sample Format:</h3>
+        <pre>
+        [
+            {
+                "name": "Product Name",
+                "description": "Product Description",
+                "category": 1,
+                "price": 100.0,
+                "image_path": "/images/product1.jpg"
+            }
+        ]
+        </pre>
+    </div>
+
+</body>
+</html>

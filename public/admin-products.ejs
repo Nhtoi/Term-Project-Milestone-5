@@ -1,0 +1,50 @@
+<%- include('partials/header', { title: title }) %>
+<h1>Admin - Product Listing</h1>
+
+<nav>
+    <a href="/admin/upload">Bulk Upload</a>
+    <a href="/">Logout</a>
+</nav>
+
+<table>
+    <thead>
+        <tr>
+            <th>ID</th>
+            <th>Name</th>
+            <th>Description</th>
+            <th>Category</th>
+            <th>Price</th>
+            <th>Actions</th>
+        </tr>
+    </thead>
+    <tbody>
+        <% if (Array.isArray(products) && products.length > 0) { %>
+            <% products.forEach(product => { %>
+                <tr>
+                    <td><%= product.id %></td>
+                    <td><%= product.name %></td>
+                    <td><%= product.description %></td>
+                    <td><%= product.category %></td>
+                    <td>$<%= product.price %></td>
+                    <td>
+                        <a href="/admin/edit/<%= product.id %>">Edit</a> |
+                        <a href="/admin/delete/<%= product.id %>" onclick="return confirm('Are you sure you want to delete this product?')">Delete</a>
+                    </td>
+                </tr>
+            <% }) %>
+        <% } else { %>
+            <tr>
+                <td colspan="6" style="text-align: center;">No products found.</td>
+            </tr>
+        <% } %>
+    </tbody>
+</table>
+
+<!-- Add Bulk Upload Button -->
+<div style="text-align: center; margin-top: 20px;">
+    <a href="/admin/upload">
+        <button type="button">Bulk Upload</button>
+    </a>
+</div>
+
+<%- include('partials/footer') %>

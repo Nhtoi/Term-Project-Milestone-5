@@ -1,0 +1,9 @@
+        [
+            {
+                "name": "Product Name",
+                "description": "Product Description",
+                "category": 1,
+                "price": 100.0,
+                "image_path": "../Assets/Product-Image.jpg"
+            }
+        ]
